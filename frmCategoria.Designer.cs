@@ -155,7 +155,7 @@ namespace SisFin
             this.txtNome.Location = new System.Drawing.Point(142, 44);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(328, 29);
+            this.txtNome.Size = new System.Drawing.Size(589, 29);
             this.txtNome.TabIndex = 0;
             this.txtNome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
