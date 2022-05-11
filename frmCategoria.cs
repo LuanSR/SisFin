@@ -86,25 +86,28 @@ namespace SisFin
             btnNovo.Enabled = false;
             Insercao = true;
             Edicao = false;
+            chkStatus.Checked = true;
         }
 
         private void alterarRegistro(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
-            limparCampos();
             txtNome.Focus();
             btnAlterar.Enabled = false;
             btnCancelar.Visible = true;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
             btnNovo.Enabled = false;
-            Insercao = true;
+            Insercao = false;
             Edicao = true;
         }
 
         private void excluirRegistro(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
+            DialogResult resp;
+            resp = MessageBox.Show("Confirma Exclusão?", "Aviso do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
+            if (resp==DialogResult.Yes)
             limparCampos();
             txtNome.Focus();
             btnAlterar.Enabled = false;
@@ -129,6 +132,15 @@ namespace SisFin
             btnExcluir.Visible = true;
             Insercao = false;
             Edicao = false;
+        }
+
+        private void fecharForm(object sender, FormClosingEventArgs e)
+        {
+            if (Edicao || Insercao)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Salve os dados primeiro", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
