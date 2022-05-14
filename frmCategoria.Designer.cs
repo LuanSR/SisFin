@@ -44,7 +44,9 @@ namespace SisFin
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.dgCategoria = new System.Windows.Forms.DataGridView();
             this.grpCategoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCategoria
@@ -161,7 +163,7 @@ namespace SisFin
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(13, 225);
+            this.btnNovo.Location = new System.Drawing.Point(14, 474);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(89, 38);
             this.btnNovo.TabIndex = 1;
@@ -171,7 +173,7 @@ namespace SisFin
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(298, 225);
+            this.btnSalvar.Location = new System.Drawing.Point(299, 474);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(89, 38);
             this.btnSalvar.TabIndex = 2;
@@ -181,7 +183,7 @@ namespace SisFin
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(108, 225);
+            this.btnAlterar.Location = new System.Drawing.Point(109, 474);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(89, 38);
             this.btnAlterar.TabIndex = 2;
@@ -191,7 +193,7 @@ namespace SisFin
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(669, 224);
+            this.btnCancelar.Location = new System.Drawing.Point(669, 474);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(97, 38);
             this.btnCancelar.TabIndex = 3;
@@ -200,7 +202,7 @@ namespace SisFin
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(203, 225);
+            this.btnExcluir.Location = new System.Drawing.Point(204, 474);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 38);
             this.btnExcluir.TabIndex = 2;
@@ -208,11 +210,21 @@ namespace SisFin
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.excluirRegistro);
             // 
+            // dgCategoria
+            // 
+            this.dgCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCategoria.Location = new System.Drawing.Point(14, 224);
+            this.dgCategoria.Name = "dgCategoria";
+            this.dgCategoria.RowTemplate.Height = 25;
+            this.dgCategoria.Size = new System.Drawing.Size(750, 244);
+            this.dgCategoria.TabIndex = 4;
+            // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 274);
+            this.ClientSize = new System.Drawing.Size(776, 524);
+            this.Controls.Add(this.dgCategoria);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnExcluir);
@@ -231,6 +243,7 @@ namespace SisFin
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.grpCategoria.ResumeLayout(false);
             this.grpCategoria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCategoria)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,5 +265,6 @@ namespace SisFin
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.DataGridView dgCategoria;
     }
 }

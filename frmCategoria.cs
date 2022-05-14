@@ -14,21 +14,75 @@ namespace SisFin
         private bool Insercao = false;
         private bool Edicao = false;
 
+        //NOVO VERSAO 3
 
+        private Categoria categoria = new Categoria();
+        private List<Categoria> lstCategoria = new List<Categoria>();
+        private BindingSource bsCategoria;
 
         public frmCategoria()
         {
             InitializeComponent();
+            lstCategoria = categoria.GeraCategorias();
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            txtNome.Text = "combustivel";
-            txtDescricao.Text = "consumo de combustivel";
-            rdDespesa.Checked = true;
-            chkStatus.Checked = true;
             grpCategoria.Enabled = false;
-        }   
+            dgCategoria.ColumnCount = 5;
+            dgCategoria.AutoGenerateColumns = false;
+            dgCategoria.Columns[0].Width = 50;
+            dgCategoria.Columns[0].HeaderText = "ID";
+            dgCategoria.Columns[0].DataPropertyName = "Id";
+            dgCategoria.Columns[0].Visible = false;
+            dgCategoria.Columns[1].Width = 200;
+            dgCategoria.Columns[1].HeaderText = "NOME";
+            dgCategoria.Columns[1].DataPropertyName = "Nome";
+            dgCategoria.Columns[2].Width = 400;
+            dgCategoria.Columns[2].HeaderText = "DESCRIÇÃO";
+            dgCategoria.Columns[2].DataPropertyName = "Descricao";
+            dgCategoria.Columns[3].Width = 50;
+            dgCategoria.Columns[3].HeaderText = "TIPO";
+            dgCategoria.Columns[3].DataPropertyName = "Tipo";
+            dgCategoria.Columns[4].Width = 50;
+            dgCategoria.Columns[4].HeaderText = "STATUS";
+            dgCategoria.Columns[4].DataPropertyName = "Status";
+
+            dgCategoria.AllowUserToAddRows = false;
+            dgCategoria.AllowUserToDeleteRows = false;
+            dgCategoria.MultiSelect = false;
+            dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            carregaGridCategoria();
+        }
+
+        private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgCategoria.RowCount > 0)
+            {
+                txtNome.Text = dgCategoria.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescricao.Text = dgCategoria.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[3].Value.ToString()) == 1)
+                    rdReceita.Checked = true;
+                else
+                    rdDespesa.Checked = true;
+
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[4].Value.ToString()) == 1)
+                    chkStatus.Checked = true;
+                else
+                    chkStatus.Checked = false;
+            }
+        }
+
+        private void carregaGridCategoria()
+        {
+            bsCategoria = new BindingSource();
+            bsCategoria.DataSource = lstCategoria;
+            dgCategoria.DataSource = bsCategoria;
+            dgCategoria.Refresh();
+
+        }
 
         private void limparCampos()
         {
@@ -37,6 +91,19 @@ namespace SisFin
             rdDespesa.Checked = false;
             rdReceita.Checked = false;
             chkStatus.Checked = false;
+        }
+
+        public void resetCampos()
+        {
+            limparCampos();
+            grpCategoria.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnNovo.Enabled = true;
+            btnCancelar.Enabled = false;
+            btnSalvar.Visible = false;
+            btnExcluir.Visible = false;
+            Insercao = false;
+            Edicao = false;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -87,6 +154,7 @@ namespace SisFin
             Insercao = true;
             Edicao = false;
             chkStatus.Checked = true;
+            dgCategoria.Enabled = false;
         }
 
         private void alterarRegistro(object sender, EventArgs e)
@@ -100,6 +168,7 @@ namespace SisFin
             btnNovo.Enabled = false;
             Insercao = false;
             Edicao = true;
+            dgCategoria.Enabled = false;
         }
 
         private void excluirRegistro(object sender, EventArgs e)
