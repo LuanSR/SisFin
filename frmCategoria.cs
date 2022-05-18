@@ -28,6 +28,7 @@ namespace SisFin
             rdDespesa.Checked = true;
             chkStatus.Checked = true;
             grpCategoria.Enabled = false;
+            btnSalvar.Visible = false;
         }   
 
         private void limparCampos()
@@ -156,7 +157,7 @@ namespace SisFin
             btnCancelar.Visible = false;
             grpCategoria.Enabled = false;
             btnNovo.Focus();
-            Insercao = true;
+            Insercao = false;
             Edicao = false;
         }
     }

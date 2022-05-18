@@ -58,9 +58,9 @@ namespace SisFin
             this.grpCategoria.Controls.Add(this.rdReceita);
             this.grpCategoria.Controls.Add(this.txtDescricao);
             this.grpCategoria.Controls.Add(this.txtNome);
-            this.grpCategoria.Location = new System.Drawing.Point(12, 12);
+            this.grpCategoria.Location = new System.Drawing.Point(12, 4);
             this.grpCategoria.Name = "grpCategoria";
-            this.grpCategoria.Size = new System.Drawing.Size(754, 206);
+            this.grpCategoria.Size = new System.Drawing.Size(754, 214);
             this.grpCategoria.TabIndex = 0;
             this.grpCategoria.TabStop = false;
             this.grpCategoria.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -214,6 +214,7 @@ namespace SisFin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(776, 274);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAlterar);
