@@ -146,5 +146,10 @@ namespace SisFin
         {
             fCategoria = null;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("201273 = Luan Silva Ribeiro / 201169 = Monic Catharine Flores Sanches Santos", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

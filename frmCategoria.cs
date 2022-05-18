@@ -177,7 +177,10 @@ namespace SisFin
             DialogResult resp;
             resp = MessageBox.Show("Confirma Exclusão?", "Aviso do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
             if (resp==DialogResult.Yes)
-            limparCampos();
+            {
+                limparCampos();
+                MessageBox.Show("Registro excluído com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
             txtNome.Focus();
             btnAlterar.Enabled = false;
             btnCancelar.Visible = true;
@@ -190,7 +193,7 @@ namespace SisFin
 
         private void salvarRegistro(object sender, EventArgs e)
         {
-            MessageBox.Show("registro gravado com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnNovo.Focus();
             grpCategoria.Enabled = false;
@@ -210,6 +213,20 @@ namespace SisFin
                 e.Cancel = true;
                 MessageBox.Show("Salve os dados primeiro", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+       
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnNovo.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnExcluir.Visible = true;
+            btnSalvar.Visible = false;
+            btnCancelar.Visible = false;
+            grpCategoria.Enabled = false;
+            btnNovo.Focus();
+            Insercao = false;
+            Edicao = false;
         }
     }
 }
