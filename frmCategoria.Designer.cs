@@ -62,7 +62,7 @@ namespace SisFin
             this.grpCategoria.Controls.Add(this.txtNome);
             this.grpCategoria.Location = new System.Drawing.Point(12, 4);
             this.grpCategoria.Name = "grpCategoria";
-            this.grpCategoria.Size = new System.Drawing.Size(754, 214);
+            this.grpCategoria.Size = new System.Drawing.Size(782, 214);
             this.grpCategoria.TabIndex = 0;
             this.grpCategoria.TabStop = false;
             this.grpCategoria.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -193,7 +193,7 @@ namespace SisFin
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(669, 474);
+            this.btnCancelar.Location = new System.Drawing.Point(697, 474);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(97, 38);
             this.btnCancelar.TabIndex = 3;
@@ -218,17 +218,17 @@ namespace SisFin
             this.dgCategoria.Location = new System.Drawing.Point(14, 224);
             this.dgCategoria.Name = "dgCategoria";
             this.dgCategoria.RowTemplate.Height = 25;
-            this.dgCategoria.Size = new System.Drawing.Size(750, 244);
+            this.dgCategoria.Size = new System.Drawing.Size(780, 244);
             this.dgCategoria.TabIndex = 4;
+            this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellContentClick);
             // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 524);
-            this.Controls.Add(this.dgCategoria);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(776, 274);
+            this.ClientSize = new System.Drawing.Size(806, 530);
+            this.Controls.Add(this.dgCategoria);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnExcluir);
